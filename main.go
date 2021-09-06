@@ -205,8 +205,6 @@ func (r *Runner) Hash(t tasks.Task) string {
 		Machine:  r.Identity.MachineID, // Use the MachineID to create a unique hash per node
 	}); err == nil {
 		return fmt.Sprintf("%x", md5.Sum(b.Bytes()))
-	} else {
-		log.Println(err)
 	}
 	return fmt.Sprintf("%s-%s", r.Identity.MachineID, uuid.Must(uuid.NewRandom()).String()) // Return MachineID + UUIDv4 if gob encoder fails
 }
