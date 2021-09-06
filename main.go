@@ -62,7 +62,7 @@ func NewRunner(id Identity, list []tasks.Task, rc tasks.Redis, OnResult func(tas
 	}).AddTasks(list)
 }
 
-// Add a slice of tasks to the Runner
+// AddTasks adds a slice of tasks to the Runner
 func (r *Runner) AddTasks(list []tasks.Task) *Runner {
 	for _, t := range list {
 		t.Location = r.Identity.Location
